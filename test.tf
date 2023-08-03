@@ -38,7 +38,7 @@ resource "vsphere_virtual_machine" "terraformtest" {
   memory   = 5000
   clone {
      template_uuid = data.vsphere_virtual_machine.template.id
-     customize {
+   /*  customize {
       linux_options {
         host_name = "test"
         domain    = ""
@@ -50,7 +50,7 @@ resource "vsphere_virtual_machine" "terraformtest" {
       }
       
     ipv4_gateway = "10.2.1.254"
-    }
+    }*/
   }
    network_interface {
     network_id   = data.vsphere_network.network.id
