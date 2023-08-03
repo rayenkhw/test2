@@ -13,6 +13,8 @@ pipeline {
         }
          stage("terraform") {
             steps {
+                sh "git config user.email 'rayen.khalfaoui@esprit.tn'"
+                sh "terraform apply -auto-approve"
                 sh "terraform init"
                 sh "terraform plan"
                 sh "terraform apply -auto-approve"
