@@ -11,5 +11,12 @@ pipeline {
                 )
             }
         }
+         stage("terraform") {
+            steps {
+                sh "terraform init"
+                sh "terraform plan"
+                sh "git commit -m 'Add testfile from Jenkins Pipeline'"
+            }
+        }
     }
 }
