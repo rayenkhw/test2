@@ -14,7 +14,7 @@ pipeline {
         stage("Git identification") {
             steps {
                 steps {
-                    sh "git config user.email 'rayen.khalfaoui@esprit.tn'"
+                    sh "git config user.email ""rayen.khalfaoui@esprit.tn""
                 }
             }
         }
