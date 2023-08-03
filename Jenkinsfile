@@ -11,9 +11,16 @@ pipeline {
                 )
             }
         }
+        stage("Git identification") {
+            steps {
+                steps {
+                    sh "git config user.email 'rayen.khalfaoui@esprit.tn'"
+                }
+            }
+        }
          stage("terraform") {
             steps {
-                sh "git config user.email 'rayen.khalfaoui@esprit.tn'"
+                
                 sh "terraform apply -auto-approve"
                 sh "terraform init"
                 sh "terraform plan"
@@ -21,5 +28,6 @@ pipeline {
                 sh "git commit -m 'Add testfile from Jenkins Pipeline'"
             }
         }
+        
     }
 }
