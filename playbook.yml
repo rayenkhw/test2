@@ -1,8 +1,0 @@
----
-- hosts: servers
-  become: yes
-  tasks:
-    - name: Install Python 3
-      apt:
-        name: python3
-        state: present
