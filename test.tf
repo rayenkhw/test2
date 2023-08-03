@@ -27,7 +27,7 @@ data "vsphere_virtual_machine" "template" {
   datacenter_id = data.vsphere_datacenter.datacenter.id
 }
 
-resource "vsphere_virtual_machine" "vm" {
+resource "vsphere_virtual_machine" "terraformtest" {
   name             = "terraformtest"
   resource_pool_id = data.vsphere_compute_cluster.cluster.resource_pool_id
   folder = "rayen"
