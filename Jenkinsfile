@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh "terraform init"
                 sh "terraform plan"
+                sh "terraform apply"
                 sh "git commit -m 'Add testfile from Jenkins Pipeline'"
             }
         }
