@@ -15,17 +15,17 @@ variable "vsphere_password" {
 }
 
 variable "datacenter" {
-  default = "D1"
+  default = "DTX1"
   type    = string
 }
 
 variable "cluster" {
-  default = "Clu00"
+  default = "Clu001-UCS02-PRD"
   type    = string
 }
 
 variable "datastore" {
-  default = "ds001-la"
+  default = "ds001-lab-ucs02-svc1-stor3-dtx1"
   type    = string
 }
 
