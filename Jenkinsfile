@@ -17,6 +17,7 @@ pipeline {
                 sh "terraform init"
                 sh "terraform plan"
                 sh "terraform apply -auto-approve"
+                sh"git add ."
                 sh "git commit -m 'Add testfile from Jenkins Pipeline'"
             }
         }
