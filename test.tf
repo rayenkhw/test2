@@ -45,11 +45,7 @@ resource "vsphere_virtual_machine" "terraformtest" {
     adapter_type = "vmxnet3" 
     
   }
-   network_interface {
-    ipv4_address       = "10.2.1.14"
-    ipv4_prefix_length = "24"
-    ipv4_gateway       = "10.2.1.254"
-}
+   
  
   disk {
   label = "disk0"
