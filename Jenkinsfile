@@ -23,8 +23,8 @@ pipeline {
         }
         stage("ansible") {
             steps {
-                sh "ansible all -m ping -v -k"
-                sh "123456"
+                sh "cat pass.txt | ansible all -m ping -v -k"
+                
                 
                 sh"git add ."
                 sh "git commit -m 'Add testfile from Jenkins Pipeline'"
