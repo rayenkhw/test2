@@ -23,7 +23,7 @@ pipeline {
         }
         stage("ansible") {
             steps {
-                sh "cat pass.txt | ansible all -m ping -v -k"
+                sh "ansible all -m ping -v"
                 
                 
                 sh"git add ."
