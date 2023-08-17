@@ -38,24 +38,16 @@ resource "vsphere_virtual_machine" "terraformtest" {
   memory   = 5000
   clone {
      template_uuid = data.vsphere_virtual_machine.template.id
-   /*  customize {
-      linux_options {
-        host_name = "test"
-        domain    = ""
-      }
-      network_interface {
-        ipv4_address = "10.2.1.40"
-        ipv4_netmask = 24
-        dns_server_list = ["8.8.8.8"]  
-      }
-      
-    ipv4_gateway = "10.2.1.254"
-    }*/
+   
   }
    network_interface {
     network_id   = data.vsphere_network.network.id
     adapter_type = "vmxnet3" 
+    ipv4_address       = "10.2.1.14"
+    ipv4_prefix_length = "24"
+    ipv4_gateway       = "10.2.1.254"
   }
+
  
   disk {
   label = "disk0"
