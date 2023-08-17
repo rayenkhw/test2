@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Git")
+        stage("Git") {
                 git(
                     url: "https://github.com/rayenkhw/test2.git",
                     branch: "terraformtest",
@@ -9,7 +9,7 @@ pipeline {
                     poll: false
                 )
             }
-        }
+        
         
          stage("terraform") {
             steps {
@@ -28,6 +28,7 @@ pipeline {
                 sh "git commit -m 'Add testfile from Jenkins Pipeline'"
             }
         }
-        
     }
+        
+    
 }
