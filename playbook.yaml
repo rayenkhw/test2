@@ -9,21 +9,22 @@
     - name: "update"
       command: sudo apt-get update
       register: details
+    - name: "python setup"
+      
+      command: sudo apt install -y python3-pip
+
+      register: details
     - name: "docker setup"
-      command: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-      command: sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-      command: sudo apt-get update
-      command: apt-cache policy docker-ce
-      command: sudo apt-get install -y docker-ce
+      command: pip3 install docker
       register: details
-    - name: "docker check"
-      command: sudo systemctl status docker
-      register: details
-    - name: "container deploy"
-      command: docker search redis
-      command: docker pull redis
-      command: docker run -d redis
-      register: details
+    - name: deploy nginx docker container
+    docker_container:
+      image: nginx:stable
+      name: nginx
+      state: started
+      auto_remove: true
+      ports:
+        - "8090:80"
     - name: "docker ps"
       command: docker ps
       register: details
