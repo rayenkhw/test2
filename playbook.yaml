@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+    - name: "user verification"
+      command: whoami
+      register: details
+    - name: "update"
+      command: sudo apt-get update
+      register: details
+    - name: "apache setup"
+      command: sudo apt install -y apache2
+      register: details
+    
