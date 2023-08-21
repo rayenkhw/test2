@@ -36,5 +36,5 @@ variable "network_name" {
 variable "template" {
   description = "IP or DNS name to connect to vCenter server"
   type        = string
-  default     = "ubuntux2"
+  default     = "rayubuntu"
 }
