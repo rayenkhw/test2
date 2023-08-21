@@ -18,13 +18,13 @@
       command: pip3 install docker
       register: details
     - name: deploy nginx docker container
-    docker_container:
-      image: nginx:stable
-      name: nginx
-      state: started
-      auto_remove: true
-      ports:
-        - "8090:80"
+      docker_container:
+        image: nginx:stable
+        name: nginx
+        state: started
+        auto_remove: true
+        ports:
+          - "8090:80"
     - name: "docker ps"
       command: docker ps
       register: details
