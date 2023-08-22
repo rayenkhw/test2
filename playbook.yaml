@@ -16,6 +16,7 @@
       register: details
     - name: "docker setup"
       command: pip3 install docker
+      command: sudo snap install docker
       register: details
     - name: "docker deploy"
       command: sudo chmod 666 /var/run/docker.sock
