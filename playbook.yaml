@@ -24,11 +24,12 @@
       register: details
       
     - name: "docker deploy 1"
-      command: docker run -i -t ubuntu:latest /bin/bash
+      command: sudo chmod 666 /var/run/docker.sock
+      
       register: details
       
     - name: "docker deploy 2"
-      command: sudo chmod 666 /var/run/docker.sock
+      command: docker run -i -t ubuntu:latest /bin/bash
       register: details
       
     - name: "docker ps"
