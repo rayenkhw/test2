@@ -3,29 +3,16 @@
   become: true
   become_method: sudo
   tasks:
-    - name: "user verification"
-      command: whoami
-      register: details
-      
     - name: "update"
       command: sudo apt-get update
       register: details
       
-    - name: "python setup"
-      command: sudo apt install -y python3-pip
-      register: details
-      
-    - name: "docker setup"
-      command: pip3 install docker
-      register: details
-      
-    - name: "docker setup 2"
+    - name: "docker setup "
       command: sudo snap install docker
       register: details
       
     - name: "docker deploy 1"
-      command: sudo chmod 666 /var/run/docker.sock
-      
+      command: echo 123456 | sudo -S chmod 666 /var/run/docker.sock
       register: details
       
     - name: "docker deploy 2"
