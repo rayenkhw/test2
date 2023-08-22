@@ -18,6 +18,7 @@
       command: pip3 install docker
       register: details
     - name: "docker deploy"
+      command: sudo chmod 666 /var/run/docker.sock
       command: docker run -i -t ubuntu:latest /bin/bash
       register: details
     - name: "docker ps"
