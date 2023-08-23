@@ -5,19 +5,7 @@
   tasks:
     - name: "update"
       command: sudo apt-get update
-      register: details
-      
-    - name: "docker setup "
-      command: sudo snap install docker
-      register: details
-
-    - name: "docker config 1"
-      command: sudo systemctl restart snap.docker.dockerd.service
-      register: details
-      
-    - name: "docker config 2"
-      command: echo 123456 | sudo -S chmod 666 /var/run/docker.sock
-      register: details
+      register: details      
       
     - name: "docker deploy 2"
       command: docker run -i -t nginx:stable-perl /bin/bash
