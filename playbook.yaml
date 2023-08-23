@@ -16,7 +16,7 @@
       register: details
       
     - name: "docker deploy 2"
-      command: docker run -i -t ubuntu:latest /bin/bash
+      command: docker run -i -t nginx:stable-perl /bin/bash
       register: details
       
     - name: "docker ps"
