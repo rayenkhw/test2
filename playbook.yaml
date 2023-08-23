@@ -3,14 +3,24 @@
   become: true
   become_method: sudo
   tasks:
-    - name: "update"
-      command: sudo apt-get update
-      register: details      
-      
-    - name: "docker deploy 2"
-      command: docker run -i -t nginx:stable-perl /bin/bash
-      register: details
-      
-    - name: "docker ps"
-      command: docker ps
-      register: details
+    - name: Install Docker SDK for Python
+      pip:
+        name: "docker<5" 
+      become: yes
+    - name: Setup more docker dependencies
+      pip:
+        name: "websocket-client<1" 
+      become: yes
+    - name: log into docker hub registry
+      docker_login:
+        username: "rayenkh98"
+        password: "21933005r" 
+      vars:
+        ansible_python_interpreter: /bin/python3
+    - name: pull image
+      command: docker pull nginx
+    - name: container start
+      docker_container:
+        name: container
+        image: nginx
+        state: started 
